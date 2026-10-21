@@ -4,8 +4,7 @@
 .fb__in { width: min(880px, 100%); margin: auto; }
 .fb__place { margin: 0 0 22px; font: 500 11px/1.6 var(--label); letter-spacing: 0.3em; text-transform: uppercase; }
 .fb__frame { position: relative; aspect-ratio: 16 / 10; background: #e4dfd3; border: 1px solid var(--line); }
-.fb__still, .fb__clip { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-.fb__clip[hidden] { display: none; }
+.fb__still { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .fb__line { margin: 22px auto 0; max-width: 34em; font: 400 16px/1.5 var(--body); color: var(--fg-dim); }
 .fb__more { margin: 18px 0 0; min-height: 34px; }
 .fb__btn { display: inline-flex; align-items: center; height: 34px; padding: 0 16px; border: 1px solid var(--fg); border-radius: 999px; background: none; color: inherit; cursor: pointer;
@@ -28,5 +27,9 @@ body.is-loading .wip { visibility: hidden; }
 .credit { position: relative; z-index: 2; margin: 14px 0 0; font: 400 10px/1.5 var(--label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-dim); }
 .credit a { border-bottom: 1px solid currentColor; }
 
-/* Casa Azaj demo: no clip on the still-loading screen, only on real failures. */
+/* "Still loading" screen: just the message and the button. */
 .fb[data-kind="slow"] .fb__frame { display: none; }
+
+/* language switch */
+.topbar__end { display: flex; gap: 8px; align-items: center; }
+.pill--lang { min-width: 0; padding-left: 12px; padding-right: 12px; letter-spacing: 0.12em; }
