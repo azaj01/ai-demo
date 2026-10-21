@@ -27,8 +27,23 @@ body.is-loading .wip { visibility: hidden; }
 .credit { position: relative; z-index: 2; margin: 14px 0 0; font: 400 10px/1.5 var(--label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-dim); }
 .credit a { border-bottom: 1px solid currentColor; }
 
-/* "Still loading" screen: just the message and the button. */
-.fb[data-kind="slow"] .fb__frame { display: none; }
+/* Fallback screens: an animated line drawing of the plan fills the frame straight away
+   (no download). On the error screens the still photo covers it once it has loaded; while
+   still loading, the drawing redraws on a slow loop instead. */
+.fb__plan { position: absolute; inset: 6%; width: 88%; height: 88%; overflow: visible; }
+.fb__plan .w, .fb__plan .pool, .fb__plan .tree { fill: none; stroke: var(--fg); stroke-width: .28; stroke-linejoin: miter;
+  stroke-dasharray: 100; stroke-dashoffset: 100; animation: fb-draw 1.6s cubic-bezier(.6,.05,.3,1) var(--d, 0s) forwards; }
+.fb__plan .pool { stroke-width: .18; stroke: var(--accent, #b8452a); animation-delay: 1.4s; }
+.fb__plan .tree { stroke-width: .16; animation-delay: 1.5s; }
+.fb__plan text { font: 500 .82px var(--label, monospace); letter-spacing: .1em; text-anchor: middle; fill: var(--fg-dim, #6b6760);
+  opacity: 0; animation: fb-fade .8s ease var(--d, 1.6s) forwards; }
+@keyframes fb-draw { to { stroke-dashoffset: 0; } }
+@keyframes fb-fade { to { opacity: 1; } }
+.fb__still { opacity: 1; transition: opacity .8s ease; }
+.fb[data-kind="slow"] .fb__still { display: none; }
+.fb[data-kind="slow"] .fb__plan .w { animation: fb-loop 7s cubic-bezier(.6,.05,.3,1) var(--d, 0s) infinite; }
+@keyframes fb-loop { 0% { stroke-dashoffset: 100; } 35%, 80% { stroke-dashoffset: 0; opacity: 1; } 95% { stroke-dashoffset: 0; opacity: 0; } 100% { stroke-dashoffset: 100; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .fb .fb__plan .w, .fb .fb__plan .pool, .fb .fb__plan .tree, .fb .fb__plan text { animation: none !important; stroke-dashoffset: 0; opacity: 1; } }
 
 /* language switch */
 .topbar__end { display: flex; gap: 8px; align-items: center; }
