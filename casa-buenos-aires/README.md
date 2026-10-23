@@ -1,6 +1,6 @@
 # Corso Buenos Aires · Quinto piano
 
-**Live:** https://azaj01.github.io/demo/casa-buenos-aires/ · part of [AI Demos](https://azaj01.github.io/demo/)
+**Live:** https://azaj01.github.io/ai-demo/casa-buenos-aires/ · part of [AI Demos](https://azaj01.github.io/ai-demo/)
 
 A scroll-driven walkthrough built from a cadastral floor plan. The page opens on the plan as an architect would print it; scrolling raises the walls, brings the camera down to the front door and walks through the flat, and each room turns from a line drawing into real materials as you reach it.
 

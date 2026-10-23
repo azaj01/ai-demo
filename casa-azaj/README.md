@@ -2,7 +2,7 @@
 
 A floor plan that becomes a house as you scroll. A concept house drawn live in the browser, in English and Italian.
 
-**Live:** https://azaj01.github.io/demo/casa-azaj/ ([Italiano](https://azaj01.github.io/demo/casa-azaj/?lang=it))
+**Live:** https://azaj01.github.io/ai-demo/casa-azaj/ ([Italiano](https://azaj01.github.io/ai-demo/casa-azaj/?lang=it))
 
 It runs best on a laptop. The house is drawn in real time with three.js, using about 39 MB of textures on a laptop and 13 MB on a phone. On devices that can't draw it, the page shows a still image instead.
 
