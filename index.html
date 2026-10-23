@@ -11,7 +11,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d1b18'/%3E%3Cpath d='M9 9h14v14H9z' fill='none' stroke='%23f3efe7' stroke-width='2.5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root { --paper: #f3efe7; --ink: #1d1b18; --ink-2: #57534c; --ink-3: #8d887f; --line: rgba(29,27,24,.14); --warm: #b4643c;
     --serif: "Fraunces", Georgia, serif; --mono: "IBM Plex Mono", ui-monospace, monospace; --sans: "Inter", system-ui, sans-serif; --ease: cubic-bezier(.22,1,.36,1); }
@@ -21,9 +21,8 @@
   .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
   header.top { display: flex; justify-content: space-between; align-items: center; padding: 26px 0; font: 500 11px var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--ink-2); }
   header.top b { color: var(--ink); font-weight: 600; }
-  .hero { padding: 9vh 0 7vh; border-bottom: 1.5px solid var(--ink); display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end; }
-  .hero h1 { font: 300 clamp(72px, 13vw, 190px)/0.86 var(--serif); letter-spacing: -.045em; margin: 0; }
-  .hero h1 em { font-style: italic; font-weight: 300; }
+  .hero { padding: 9vh 0 7vh; border-bottom: 1.5px solid var(--ink); display: grid; grid-template-columns: 1fr; align-items: end; }
+  .hero h1 { font: 500 clamp(72px, 13vw, 190px)/0.88 var(--serif); letter-spacing: -.045em; margin: 0; color: var(--ink); }
   .hero p { margin: 0; font-size: 18px; color: var(--ink-2); max-width: 420px; }
   .hero .count { display: block; font: 500 11px var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--ink-3); margin-top: 18px; }
   .list { padding: 36px 0 90px; }
@@ -34,17 +33,11 @@
   .shot img.alt { opacity: 0; }
   .demo:hover .shot img { transform: scale(1.035); }
   .demo:hover .shot img.alt { opacity: 1; }
-  .shot .tag { position: absolute; left: 14px; top: 14px; font: 600 10px var(--mono); letter-spacing: .2em; text-transform: uppercase; background: rgba(243,239,231,.92); padding: 5px 9px; border-radius: 2px; }
   .info h2 { font: 400 clamp(36px, 4vw, 56px)/1 var(--serif); letter-spacing: -.025em; margin: 0 0 6px; }
   .info .place { font: 500 11px var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--warm); margin: 0 0 18px; }
   .info p { color: var(--ink-2); margin: 0 0 18px; }
-  .info ul { list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-wrap: wrap; gap: 6px; }
-  .info li { font: 500 10.5px var(--mono); letter-spacing: .1em; text-transform: uppercase; border: 1px solid var(--line); padding: 4px 9px; border-radius: 999px; color: var(--ink-2); }
   .open { display: inline-flex; align-items: center; gap: 10px; font: 500 12px var(--mono); letter-spacing: .16em; text-transform: uppercase; padding: 12px 18px; border-radius: 999px; background: var(--ink); color: var(--paper); transition: gap .4s var(--ease); }
   .demo:hover .open { gap: 16px; }
-  .note { padding: 40px 0 70px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; border-top: 1.5px solid var(--ink); }
-  .note h3 { font: 400 28px/1.1 var(--serif); margin: 0; letter-spacing: -.015em; }
-  .note p { color: var(--ink-2); margin: 0; }
   footer { padding: 24px 0 40px; display: flex; justify-content: space-between; font: 500 10.5px var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3); border-top: 1px solid var(--line); }
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
   .reveal.in { opacity: 1; transform: none; }
@@ -53,7 +46,6 @@
     .hero { grid-template-columns: 1fr; gap: 22px; padding: 6vh 0 5vh; }
     .demo { grid-template-columns: 1fr; gap: 18px; padding: 32px 0; }
     .demo .no { padding: 0; }
-    .note { grid-template-columns: 1fr; gap: 14px; }
     footer { flex-direction: column; gap: 6px; }
   }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .shot img { transition: none; } }
@@ -64,11 +56,7 @@
   <header class="top"><b>AZAJ</b><span>Interactive work · 2026</span></header>
 
   <section class="hero">
-    <h1>AI <em>Demos</em></h1>
-    <div>
-      <p>Interactive experiences built with AI. Each one starts from something flat — a floor plan, a sketch — and turns it into a place you can walk through in the browser.</p>
-      <span class="count">02 demos · runs in any modern browser</span>
-    </div>
+    <h1>AI Demos</h1>
   </section>
 
   <main class="list">
@@ -77,13 +65,11 @@
       <div class="shot">
         <img src="img/casa-buenos-aires.jpg" alt="The opening floor plan of Corso Buenos Aires, half pencil drawing and half rendered">
         <img class="alt" src="img/casa-buenos-aires-interior.jpg" alt="" aria-hidden="true">
-        <span class="tag">New</span>
       </div>
       <div class="info">
         <h2>Corso Buenos Aires</h2>
         <p class="place">Milano · Quinto piano · 183 m²</p>
         <p>A real cadastral floor plan becomes a Milanese studio as you scroll: the walls rise out of the drawing, the camera walks in at eye height, and each room turns from pencil to oak, terrazzo and marble in the late sun.</p>
-        <ul><li>Floor plan → 3D</li><li>three.js</li><li>Scroll story</li><li>Room files</li></ul>
         <span class="open">Open demo <span aria-hidden="true">→</span></span>
       </div>
     </a>
@@ -97,18 +83,12 @@
         <h2>Casa Azaj</h2>
         <p class="place">Concept house · 946 m² · EN / IT</p>
         <p>A courtyard house drawn live in the browser. A flat plan becomes the house as you scroll, with an olive tree, a pool, a glass gallery and seven room files to open along the way.</p>
-        <ul><li>Floor plan → 3D</li><li>three.js</li><li>Bilingual</li><li>Golden-hour light</li></ul>
         <span class="open">Open demo <span aria-hidden="true">→</span></span>
       </div>
     </a>
   </main>
 
-  <section class="note reveal">
-    <h3>How they're made</h3>
-    <p>Plain web pages, no app to install: three.js for the 3D, free CC0 textures, and an AI coding agent for most of the building. Best viewed on a laptop; phones get a lighter version.</p>
-  </section>
-
-  <footer><span>© 2026 AZAJ</span><span>Built with Claude</span></footer>
+  <footer><span>© 2026 AZAJ</span></footer>
 </div>
 <script>
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.15 });
