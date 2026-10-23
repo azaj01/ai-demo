@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corso Buenos Aires · Quinto piano · Milano</title>
+<meta name="description" content="A fifth-floor studio on Corso Buenos Aires, Milan. Scroll from the floor plan into the rooms.">
+<meta property="og:title" content="Corso Buenos Aires · Quinto piano">
+<meta property="og:description" content="A floor plan that becomes a Milanese studio as you scroll. An AI demo by AZAJ.">
+<meta property="og:image" content="https://azaj01.github.io/demo/casa-buenos-aires/media/share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f3efe7'/%3E%3Cpath d='M7 7h18v18H7z' fill='none' stroke='%232a2825' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+</head>
+<body>
+<canvas id="scene"></canvas>
+<div id="labels"></div>
+
+<header class="top">
+  <div class="mark">Quinto<span>piano</span></div>
+  <nav>
+    <button id="show-plan" type="button">Original plan</button>
+    <a href="#visit" class="pill">Book a visit</a>
+  </nav>
+</header>
+
+<section class="intro">
+  <p class="eyebrow">Milano · Porta Venezia</p>
+  <h1>Corso Buenos Aires</h1>
+  <p class="lede">A fifth-floor studio above the Corso. <span id="total"></span>, ceilings at 2,90 m, light from both sides.</p>
+</section>
+
+<aside class="titleblock">
+  <div class="tb-head"><span>Quinto piano</span><b>A-101</b></div>
+  <div class="tb-grid">
+    <div><span>Progetto</span><b>Corso Buenos Aires, Milano</b></div>
+    <div><span>Tavola</span><b>Pianta piano quinto</b></div>
+    <div><span>Scala</span><b>1:100</b></div>
+    <div><span>Altezza</span><b>2,90 m</b></div>
+    <div><span>Superficie</span><b data-total></b></div>
+    <div><span>Rev.</span><b>A · 10/2026</b></div>
+  </div>
+  <div class="tb-note">Scale estimated from the cadastral plan. Furniture and finishes are illustrative.</div>
+</aside>
+<div class="split-tags"><span>Drawing</span><span>Rendered</span></div>
+<div id="count">00 / 06</div>
+
+<div id="hint">Scroll to walk in <i></i></div>
+<div id="caption"></div>
+<div id="spots"></div>
+<div id="walk-hint"></div>
+<aside id="file" aria-hidden="true">
+  <button class="file__close" type="button" aria-label="Close">Close ✕</button>
+  <p class="file__no"></p>
+  <h3 class="file__title"></h3>
+  <p class="file__meta"></p>
+  <p class="file__text"></p>
+  <ul class="file__facts"></ul>
+  <p class="file__foot">Corso Buenos Aires · A-101 · illustrative furnishing</p>
+</aside>
+<nav id="rail"></nav>
+<div class="progress"><span id="bar"></span></div>
+
+<section class="outro" id="visit">
+  <p class="eyebrow">Corso Buenos Aires · Milano</p>
+  <h2>Come and see the light.</h2>
+  <p><span data-total></span> on the fifth floor: five rooms, two bathrooms, a storage room and two lifts. Visits on weekday afternoons, when the sun comes in from the Corso.</p>
+  <div class="cta">
+    <a class="btn dark" href="https://wa.me/?text=Hello%2C%20I%27d%20like%20to%20visit%20the%20studio%20on%20Corso%20Buenos%20Aires" target="_blank" rel="noopener">Ask on WhatsApp</a>
+    <a class="btn" href="mailto:?subject=Corso%20Buenos%20Aires%20%E2%80%94%20visit">Email the agent</a>
+    <button class="btn ghost" type="button" onclick="window.__setProgress(0); scrollTo(0,0)">Back to the plan</button>
+  </div>
+</section>
+
+<dialog id="plan-dialog">
+  <img src="assets/plan-original.png" alt="The original cadastral floor plan: Piano quinto, h 2.90, Corso Buenos Aires">
+  <p>The source: the cadastral plan this walkthrough was built from. <button type="button" onclick="this.closest('dialog').close()">Close</button></p>
+</dialog>
+
+<div class="loader"><div class="loader-in"><span></span><em>Drawing the plan</em><b id="load-pct">0%</b></div></div>
+<div class="fallback">
+  <img src="assets/plan-original.png" alt="Floor plan">
+  <p>This walkthrough needs WebGL 2. Here is the plan instead.</p>
+</div>
+
+<div class="scroll-space"></div>
+<script type="module" src="js/main.js"></script>
+<script>history.scrollRestoration = "manual"; scrollTo(0, 0);
+document.getElementById("show-plan").onclick = () => document.getElementById("plan-dialog").showModal();</script>
+</body>
+</html>
